@@ -5,7 +5,8 @@
 }
 body{
     background-color: #D1B7A0;
-    max-width: 1920px;
+    max-width: 1900px;
+    overflow-x: hidden;
     
 }
 .top{
@@ -37,8 +38,12 @@ body{
     gap: 10px;
 }
 .menu{
+    display: none;
     width: 40px;
     height: 40px;
+}
+.menu:hover{
+    transform: scale(1.05);
 }
 .logo{
     width: 60px;
@@ -259,14 +264,80 @@ body{
 
 
 @media screen and (max-width:1400px) {
-    .sale{
-    margin-left: 150px;
-    margin-right: 150px;
-    width: 400px;
-    height: 200px;
-    background-image: url("./sale1.jpg");
-    background-size: cover;
+    
+    .headertop{
+        justify-content: center;
     }
+    .headertop img{
+        width: 40px;
+        height:40px;
+    }
+    .top-right{
+        display: none;
+    }
+    .menu{
+        display: block;
+    }
+    .logo,.remove{
+        display: none;
+    }
+    
+    .sale-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 1400px;
+        padding: 0;
+        background-image: none;
+    }
+    .sale{
+        position: absolute;
+        top:80px;
+        left: 350px;
+        width: 700px;
+        height: 300px;
+        justify-content: center;
+        background-image: url("./sale1.jpg");
+        background-size: cover;
+        margin: 0;
+        
+    }
+    .sale-s2-content h1,.sale-s2-content h2{
+        display: none;
+    }
+    .visible{
+        display: block;
+    }
+    .explore-container{
+        position: relative;
+        width: 1400px;
+    }
+    .explore{
+        position: absolute;
+        left: 0px;
+        width: 840px;
+        height: 105px;
+        padding: 6px;
+        padding-left: 9px;
+        border-radius: 6px;
+        display: flex;
+        gap: 30px;  
+    }
+    .explore__img{
+        justify-content: center;
+        align-items: center;
+        height: 160px;
+        width: 160px;
+    }
+    .explore-img img{
+        height: 160px;
+        width: 160px;
+        margin-left: 8px;
+        border-radius: 5px;
+        transform: rotate(-3deg);
+    }
+    
 }
 
 .sale-s1{
@@ -347,35 +418,36 @@ body{
 /*explore container*/
 .explore-container{
     
-    height:200px;
-    width: 1920px;
+    height: auto; /* Allow height to adjust based on content */
+    width: 100%; /* Use full width */
+    max-width: 1920px; /* Maintain a maximum width */
+    margin: 0 auto; /* Center the container */
     background-image: url("./desert_img.jpg");
     background-size: cover;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: cyan;
 }
 .explore{
-    width: 1140px;
-    height: 170px;
+    width: 90%; /* Use a percentage for flexibility */
+    max-width: 1140px; /* Maintain a maximum width */
     padding: 10px;
-    padding-left: 15px;
     border: solid none;
     background-color: #e2e1d9;
     border-radius: 10px;
     display: flex;
-    gap: 50px;
+    gap: 20px; /* Reduced gap for smaller screens */
     align-items: center;
     position: relative;
+    flex-wrap: wrap; /* Allow wrapping */
 } 
 .explore__img{
+    display: flex; /* Ensure flex properties are applied */
     justify-content: center;
     align-items: center;
-    height: 160px;
-    width: 160px;
+    flex: 0 0 auto; /* Allow it to take its natural size */
 }
 .explore-img img{
     height: 160px;
@@ -389,9 +461,10 @@ body{
     display: flex;
     flex-direction: column;
     font-size: 16px;
-    width: 50%;
+    max-width: 50%;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
+    flex: 1;
     justify-content: center;
 }
 
@@ -854,8 +927,10 @@ body{
                 rgba(0, 0, 0, 0.3) 0px -36px 30px 0px inset, 
                 rgba(0, 0, 0, 0.2) 0px -79px 40px 0px inset;
 }
+.last{
+    
+}
 
-/* Travel Diaries section with card hover lift */
 .travel-section {
     display: flex;
     flex-direction: column;
@@ -896,7 +971,7 @@ body{
 .city-exploration__card__icon{
     border-radius: 12px;
 }
-/* Ways to Tour section with heartbeat animation on heart icons */
+
 .city-exploration__card__icon img {
     cursor: pointer;
     width: 100%;
@@ -967,34 +1042,6 @@ body{
     body{
         font-size: 12px;
     }
-    .Header{
-        position: sticky;
-        top: 0;
-        z-index: 3;
-    }
-    .Header__S1 img{
-        width: 6%;
-        height: 6%;
-    }
-    .Header__S1 h1{
-        font-size: 26px;
-    }
-    .Header__S2,.Header__S3__button1{
-        display: none;
-    }
-    .Header__S3__button3,.Header__S0{
-        display: block;
-    }
-    .Header__S3__button2, .Header__S3__button3 {
-        padding: 10px;  /* Reduce padding */
-        font-size: 10px;  /* Reduce font size */
-        width: 63px;
-        font-weight: bold;
-    }
-    .Header__S3 {
-        gap: 5px;  /* Reduce the gap between buttons */
-    }
-    
     .meals-section h2 {
         font-size: 1.6rem;
     }
@@ -1055,16 +1102,147 @@ body{
         max-width: 100%;
         height: auto;
     }
-/* -------------------------------------------------------imporntn below for sticky */
-    .Header {
-        position: sticky;
-        top: 0;
-        z-index: 3;
-        width: 100%; /* Ensure it takes the full width */
-        background-color: #fff; /* Optional: background to ensure it's visible */
-        padding: 10px; /* Optional: adjust padding for better spacing */
-        /* Avoid overflow from sticky elements */
+    /*---------------------------------------------------------------*/
+    @media screen and (max-width: 1400px) {
+        .explore-container{
+    
+            height: 400px; /* Allow height to adjust based on content */
+            width: 100%; /* Use full width */
+            max-width: 1920px; /* Maintain a maximum width */
+            margin: 0 auto; /* Center the container */
+            background-image: url("./desert_img.jpg");
+            background-size: cover;
+            margin-top: 25px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .explore{
+            width: 90%; /* Use a percentage for flexibility */
+            max-width: 1140px; /* Maintain a maximum width */
+            padding: 10px;
+            height: 290px;
+            border: solid none;
+            background-color: #e2e1d9;
+            border-radius: 10px;
+            display: flex;
+            gap: 20px; /* Reduced gap for smaller screens */
+            align-items: center;
+            position: relative;
+            flex-wrap: wrap; /* Allow wrapping */
+        } 
+        .explore__img{
+            display: flex; /* Ensure flex properties are applied */
+            justify-content: center;
+            align-items: center;
+            flex: 0 0 auto; /* Allow it to take its natural size */
+        }
+        .explore-img img{
+            height: 160px;
+            width: 160px;
+            margin-left: 8px;
+            border-radius: 5px;
+            transform: rotate(-3deg);
+        }
+        
+        .explore-content{
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+            max-width: 50%;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .explore-content__p1{
+            background-color: #E0E0E0;
+            border: solid #F2F1EC 2px;
+            width: fit-content;
+            padding: 8px;
+            border-radius: 20px;
+        }
+        
+        .explore__content p{
+            font-size: 16px;
+            text-align: justify;
+        }
+        
+        .explore button{
+            position: absolute;
+            left: 83%;
+            top: 50%;
+            font-size: 12px;
+            background-color: transparent;
+            border-radius: 25px;
+            padding: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.5s, transform 0.3s;
+        }
+        
+        .explore button:hover{
+            background-color: #000000;
+            color: #FFFFFF;
+            border: solid #000000;
+            transform: scale(1.1);
+        }
+
+    @media screen and (max-width: 800px) {
+        .explore {
+            flex-direction: column; /* Stack elements vertically */
+            gap: 10px; /* Adjust gap */
+        }
+    
+        .explore-content {
+            align-items: center; /* Center align content */
+        }
+    
+        .explore-button {
+            width: 100%; /* Make button full width */
+            text-align: center; /* Center button text */
+        }
+    
+        .explore-img img {
+            width: 120px; /* Reduce image size */
+            height: 120px; /* Maintain aspect ratio */
+        }
+    
+        .explore-content__p1 {
+            font-size: 14px; /* Adjust font size */
+        }
+    
+        .explore__content p {
+            font-size: 14px; /* Adjust font size */
+        }
     }
+    
+    @media screen and (max-width: 600px) {
+        .explore-content {
+            font-size: 14px; /* Further adjust font size */
+        }
+    
+        .explore-button {
+            padding: 8px 12px; /* Adjust button padding */
+        }
+    
+        .explore-img img {
+            width: 100px; /* Further reduce image size */
+            height: 100px; /* Maintain aspect ratio */
+        }
+    
+        .explore-content__p1 {
+            font-size: 12px; /* Adjust font size */
+        }
+    
+        .explore__content p {
+            font-size: 12px; /* Adjust font size */
+        }
+    }
+
+}
 
     .textbox__one {
         font-size: 36px;
